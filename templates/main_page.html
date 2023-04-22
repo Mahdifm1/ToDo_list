@@ -8,7 +8,9 @@
             <h2 align="center">Add Item</h2>
             <form class="form-inline" action="add_task/" method="post" align="center">
                 <div align="center">
-                    <input type="text" class="form-control w-50 mb-2 mr-sm-2" placeholder="Enter task" name="content">
+                    <input type="text" class="form-control w-50 mb-2 mr-sm-2" placeholder="Enter task" name="content"
+                           maxlength="64" required oninvalid="this.setCustomValidity('task can not be empty')"
+                           oninput="setCustomValidity('')">
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">Submit</button>
             </form>
@@ -16,7 +18,7 @@
                 {% for task in items %}
                     <li class="list-group-item align-items-center">
                         <div class="row">
-                            <div class="col-lg-10">
+                            <div class="col-lg-8" style="overflow: hidden">
                                 {{ task.title }}
                             </div>
                             <div class="col-lg-2">
