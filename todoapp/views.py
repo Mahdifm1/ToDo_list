@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect
 
 def home_page(request):
     print(Todo.objects.all().values())
-    contex = Todo.objects.all().values().order_by("added_date")
+    contex = Todo.objects.all().values().order_by("-added_date")
     return render(request, 'main_page.html', context={'items': contex})
 
 
