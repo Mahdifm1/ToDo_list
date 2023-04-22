@@ -5,11 +5,27 @@
 {% block content %}
     <div class="row">
         <div class="col">
-            <h2>Add Item</h2>
-            <form class="form-inline" action="add_task/" method="post">
-                <input type="text" class="form-control w-50 mb-2 mr-sm-2" placeholder="Enter task" name="content">
+            <h2 align="center">Add Item</h2>
+            <form class="form-inline" action="add_task/" method="post" align="center">
+                <div align="center">
+                    <input type="text" class="form-control w-50 mb-2 mr-sm-2" placeholder="Enter task" name="content">
+                </div>
                 <button type="submit" class="btn btn-primary mb-2">Submit</button>
             </form>
+            <ul class="list-group">
+                {% for task in items %}
+                    <li class="list-group-item align-items-center">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                {{ task.title }}
+                            </div>
+                            <div class="col-lg-2">
+                                {{ task.added_date }}
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 {% endblock content %}
