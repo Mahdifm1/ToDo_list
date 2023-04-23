@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col">
             <h2 align="center">Add Item</h2>
-            <form class="form-inline" action="add_task/" method="post" align="center">
+            <form id="task_form" class="form-inline" action="add_task/" method="post" align="center">
                 <div align="center">
                     <input type="text" class="form-control w-50 mb-2 mr-sm-2" placeholder="Enter task" name="content"
                            maxlength="64" required oninvalid="this.setCustomValidity('task can not be empty')"
@@ -21,8 +21,13 @@
                             <div class="col-lg-8" style="overflow: hidden">
                                 {{ task.title }}
                             </div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-3">
                                 {{ task.added_date }}
+                            </div>
+                            <div class="col-lg-1">
+                                <form class="form-inline" action="delete_task/{{ task.id }}/" method="post">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
                             </div>
                         </div>
                     </li>

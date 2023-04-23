@@ -8,8 +8,7 @@ from django.http import HttpResponseRedirect
 
 
 def home_page(request):
-    print(Todo.objects.all().values())
-    contex = Todo.objects.all().values().order_by("-added_date")
+    contex = Todo.objects.all().values().order_by("-id")
     return render(request, 'main_page.html', context={'items': contex})
 
 
@@ -18,4 +17,10 @@ def add_todo(request):
     time = timezone.now().date()
     text = request.POST['content']
     Todo.objects.create(title=text, added_date=time)
+    return HttpResponseRedirect('/')
+
+
+@csrf_exempt
+def delete_todo(request, todo_id):
+    Todo.objects.get(id=todo_id).delete()
     return HttpResponseRedirect('/')
