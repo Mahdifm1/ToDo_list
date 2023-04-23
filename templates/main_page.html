@@ -16,9 +16,9 @@
             </form>
             <ul class="list-group">
                 {% for task in items %}
-                    <li class="list-group-item align-items-center">
+                    <li class="list-group-item align-items-center border-black">
                         <div class="row">
-                            <div class="col-lg-8" style="overflow: hidden">
+                            <div class="col-lg-8 mb-1">
                                 {{ task.title }}
                             </div>
                             <div class="col-lg-3">
@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-lg-1">
                                 <form class="form-inline" action="delete_task/{{ task.id }}/" method="post">
-                                    <button type="submit" class="btn btn-lg button_icon"></button>
+                                    <button type="submit" class="btn btn-lg delete_button_icon"></button>
                                 </form>
                             </div>
                         </div>
