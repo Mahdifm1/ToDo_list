@@ -1,8 +1,11 @@
 ul {
-    height: 70px;
+    height: auto;
     line-height: 35px;
     horiz-align: center;
     padding: 0;
+    margin-bottom: 20px;
+    overflow-y: scroll;
+    max-height: 500px;
 }
 
 li {
