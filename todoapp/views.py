@@ -1,10 +1,10 @@
-from .models import Todo
-
+import todoapp.models
 from django.shortcuts import render
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 from .models import Todo
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 
 
 def home_page(request):
@@ -22,5 +22,10 @@ def add_todo(request):
 
 @csrf_exempt
 def delete_todo(request, todo_id):
-    Todo.objects.get(id=todo_id).delete()
+    try:
+        Todo.objects.get(id=todo_id).delete()
+    except todoapp.models.Todo.DoesNotExist:
+        messages.info(request, 'task has been deleted or not exist')
+    except:
+        pass
     return HttpResponseRedirect('/')
