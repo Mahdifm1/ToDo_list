@@ -5,7 +5,7 @@ ul {
     padding: 0;
     margin-bottom: 20px;
     overflow-y: scroll;
-    max-height: 500px;
+    max-height: 450px;
 }
 
 li {
