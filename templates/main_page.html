@@ -12,8 +12,25 @@
                            maxlength="64" required oninvalid="this.setCustomValidity('task can not be empty')"
                            oninput="setCustomValidity('')">
                 </div>
-                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                <button type="submit" class="button_submit btn btn-primary mb-2">Submit</button>
             </form>
+            <ul class="list-group">
+                {% for task in items %}
+                    <li class="list-group-item align-items-center border-black">
+                        <div class="row">
+                            <div class="col-lg-8 mb-1">
+                                {{ task.title }}
+                            </div>
+                            <div class="col-lg-3">
+                                {{ task.added_date }}
+                            </div>
+                            <div class="col-lg-1">
+                                <form class="form-inline" action="delete_task/{{ task.id }}/" method="post">
+                                    <button type="submit" class="btn btn-lg delete_button_icon"></button>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
             {% if messages %}
                 {% for message in messages %}
                     {% if "fail_to_delete" in message.tags %}

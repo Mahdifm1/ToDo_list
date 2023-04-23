@@ -1,0 +1,27 @@
+ul {
+    height: auto;
+    line-height: 35px;
+    horiz-align: center;
+    padding: 0;
+    margin-bottom: 20px;
+    overflow-y: scroll;
+    max-height: 500px;
+}
+
+li {
+    style: "overflow: hidden";
+    padding: 0px;
+}
+
+.delete_button_icon {
+    background-image: url("../delete_icon.png");
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    margin: 0;
+    padding: 15px;
+    line-height: 35px;
+}
+
+.button_submit {
+    background-color: #009b00;
+}
