@@ -14,6 +14,11 @@
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">Submit</button>
             </form>
+            {% if messages %}
+                {% for message in messages %}
+                    <div {% if message.tags %} class="{{ message.tags }} text-danger"{% endif %}>{{ message }}</div>
+                {% endfor %}
+            {% endif %}
             <ul class="list-group">
                 {% for task in items %}
                     <li class="list-group-item align-items-center">
