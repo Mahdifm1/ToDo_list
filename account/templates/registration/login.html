@@ -12,6 +12,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="form-area login-form">
+                        {% if form.errors %}
+                            <p>Your username and password didn't match. Please try again.</p>
+                        {% endif %}
                         <div class="form-content">
 
                         </div>

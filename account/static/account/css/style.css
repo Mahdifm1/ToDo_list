@@ -215,3 +215,9 @@ a, a:hover {
 .mr-top-10 {
     margin-top: 10px;
 }
+
+.error-msg{
+    color: white !important;
+    background-color: white;
+    text-align: center;
+}
