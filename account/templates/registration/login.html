@@ -13,7 +13,7 @@
                 <div class="col-lg-8">
                     <div class="form-area login-form">
                         {% if form.errors %}
-                            <p>Your username and password didn't match. Please try again.</p>
+                            {{ form.errors }}
                         {% endif %}
                         <div class="form-content">
 
@@ -37,7 +37,7 @@
                                     <p>Don’t have an account? <a href="{% url 'signup' %}">Sign up</a></p>
                                 </div>
                                 <div>
-                                    <p><a href="/">Forgot your password?</a></p>
+                                    <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
                                 </div>
                             </form>
                         </div>
