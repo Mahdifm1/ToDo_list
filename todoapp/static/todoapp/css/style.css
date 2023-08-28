@@ -25,3 +25,7 @@ li {
 .button_submit {
     background-color: #009b00;
 }
+
+.fl-right{
+    display: flex;
+}

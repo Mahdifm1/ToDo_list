@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Signup{% endblock %}
+{% block header %}
+    <link rel="stylesheet" type="text/css" href="{% static 'account/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="myform-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="form-area signup-form">
+                        <div>
+                        {% if form.errors %}
+                            {{ errors }}
+                        {% endif %}
+                        </div>
+                        <div class="form-content">
+
+                        </div>
+                        <div class="form-input">
+                            <h2>Signup Form</h2>
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {{ form.username }}
+                                    <label>User Name</label>
+                                </div>
+                                <div class="form-group">
+                                    {{ form.email }}
+                                    <label>Email</label>
+                                </div>
+                                <div class="form-group">
+                                    {{ form.password1 }}
+                                    <label>Password</label>
+                                </div>
+                                <div class="form-group">
+                                    {{ form.password2 }}
+                                    <label>Confirm Password</label>
+                                </div>
+                                <div class="myform-button">
+                                    <button class="myform-btn">Signup</button>
+                                </div>
+                                <div class="mr-top-25">
+                                    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

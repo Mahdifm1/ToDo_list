@@ -8,8 +8,10 @@ from django.contrib import messages
 
 
 def home_page(request):
-    contex = Todo.objects.all().values().order_by("-id")
-    return render(request, 'main_page.html', context={'items': contex})
+    if request.user.is_authenticated:
+        contex = Todo.objects.all().values().order_by("-id").filter(user=request.user)
+        return render(request, 'main_page.html', context={'items': contex})
+    return render(request, 'main_page.html')
 
 
 @csrf_exempt
@@ -17,9 +19,9 @@ def add_todo(request):
     time = timezone.now().date()
     text = request.POST['content']
     try:
-        Todo.objects.create(title=text, added_date=time)
-    except:
-        messages.info(request, 'task can not be added', extra_tags='fail_to_add')
+        Todo.objects.create(user=request.user, title=text, added_date=time)
+    except Exception as e:
+        messages.info(request, f'task can not be added\n{e}', extra_tags='fail_to_add')
     return HttpResponseRedirect('/')
 
 
