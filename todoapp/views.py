@@ -19,9 +19,9 @@ def add_todo(request):
     time = timezone.now().date()
     text = request.POST['content']
     try:
-        Todo.objects.create(user_id=request.user.id, user=request.user, title=text, added_date=time)
-    except:
-        messages.info(request, 'task can not be added', extra_tags='fail_to_add')
+        Todo.objects.create(user=request.user, title=text, added_date=time)
+    except Exception as e:
+        messages.info(request, f'task can not be added\n{e}', extra_tags='fail_to_add')
     return HttpResponseRedirect('/')
 
 
