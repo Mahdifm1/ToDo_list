@@ -1,7 +1,4 @@
 from django.contrib import admin
-from django.template.response import TemplateResponse
-from collections import OrderedDict
-
 from todoapp.models import Todo
 from .models import User
 
