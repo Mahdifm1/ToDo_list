@@ -11,8 +11,7 @@ def home_page(request):
     if request.user.is_authenticated:
         contex = Todo.objects.all().values().order_by("-id").filter(user=request.user)
         return render(request, 'main_page.html', context={'items': contex})
-    else:
-        return HttpResponseRedirect('account/login/')
+    return render(request, 'main_page.html')
 
 
 @csrf_exempt

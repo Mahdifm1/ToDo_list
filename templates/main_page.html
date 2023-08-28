@@ -1,14 +1,21 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %} Todo List {% endblock title %}
+{% block header %}
+    <link rel="stylesheet" type="text/css" href="{% static 'account/css/style.css' %}">
+{% endblock %}
+
 
 {% block content %}
+
     <div class="row">
         <div class="col">
             <h2 align="center">Add Item</h2>
             <form id="task_form" class="form-inline" action="add_task/" method="post" align="center">
                 <div align="center">
-                    <input type="text" class="form-control w-50 mb-2 mr-sm-2" placeholder="Enter task" name="content"
+                    <input type="text" class="form-control w-50 mb-2 mr-sm-2" placeholder="Enter task"
+                           name="content"
                            maxlength="64" required oninvalid="this.setCustomValidity('task can not be empty')"
                            oninput="setCustomValidity('')">
                 </div>
@@ -45,4 +52,17 @@
             </ul>
         </div>
     </div>
+    {% if not user.is_authenticated %}
+        <div class="shadow-border">
+            <div class="text-center mr-top-25">
+                <p>you are not logged in! <br>Please login to your account first to be able to use the site features</p>
+            </div>
+            <div class="myform-button text-center">
+                <button onclick="location.href='{% url 'login' %}'" class="myform-btn">Login</button>
+            </div>
+            <div class="mr-top-25 text-center">
+                <p>Don’t have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+            </div>
+        </div>
+    {% endif %}
 {% endblock content %}

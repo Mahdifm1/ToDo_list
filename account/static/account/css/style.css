@@ -212,8 +212,35 @@ a, a:hover {
     margin-top: 10px;
 }
 
-.error-msg{
+.error-msg {
     color: white !important;
     background-color: white;
     text-align: center;
+}
+
+.myform-btn {
+    width: 30%;
+    height: 50px;
+    font-size: 17px;
+    background: rgba(103, 58, 183);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+.myform-button {
+    align-items: center;
+    margin-top: 30px;
+}
+
+.shadow-border {
+    width: 60%;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: 0px 5px 30px 5px #888888;
 }
