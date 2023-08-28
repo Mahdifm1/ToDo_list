@@ -120,8 +120,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# redirect after login
+# redirect page after login
 LOGIN_REDIRECT_URL = "/"
+# redirect page after logout
+LOGOUT_REDIRECT_URL = "/"
 
 # send email
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
