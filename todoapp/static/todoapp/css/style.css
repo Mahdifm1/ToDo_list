@@ -1,11 +1,11 @@
 ul {
-    height: auto;
+    /*height: 50px;*/
+    max-height: 45vh;
     line-height: 35px;
     horiz-align: center;
     padding: 0;
     margin-bottom: 20px;
     overflow-y: scroll;
-    max-height: 450px;
 }
 
 li {
@@ -26,6 +26,6 @@ li {
     background-color: #009b00;
 }
 
-.fl-right{
+.fl-right {
     display: flex;
 }
