@@ -34,3 +34,15 @@ def delete_todo(request, todo_id):
     except:
         pass
     return HttpResponseRedirect('/')
+
+
+def change(request, task_id):
+    user_todo = Todo.objects.filter(user=request.user).get(id=task_id)
+    # print(user_todo)
+    # print(type(user_todo))
+
+    user_todo.done ^= True
+    user_todo.save()
+    print(user_todo.done)
+
+    return HttpResponseRedirect('/')
