@@ -244,3 +244,13 @@ a, a:hover {
     border-radius: 15px;
     box-shadow: 0px 5px 30px 5px #888888;
 }
+
+.card-class {
+    border-radius: 15px !important;
+    background: #e2d5de !important;
+}
+
+.border-rad {
+    border-radius: 15px;
+}
+
