@@ -20,8 +20,8 @@ def add_todo(request):
     text = request.POST['content']
     try:
         Todo.objects.create(user=request.user, title=text, added_date=time)
-    except Exception as e:
-        messages.info(request, f'task can not be added\n{e}', extra_tags='fail_to_add')
+    except Exception:
+        messages.info(request, f'task can not be added', extra_tags='fail_to_add')
     return HttpResponseRedirect('/')
 
 
@@ -38,8 +38,6 @@ def delete_todo(request, todo_id):
 
 def change(request, task_id):
     user_todo = Todo.objects.filter(user=request.user).get(id=task_id)
-    # print(user_todo)
-    # print(type(user_todo))
 
     user_todo.done ^= True
     user_todo.save()
