@@ -29,3 +29,27 @@ li {
 .fl-right {
     display: flex;
 }
+
+.navbar-color {
+    color: rgba(255, 255, 255, 0.55) !important;
+    text-decoration: none;
+}
+
+.navbar-color:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.login {
+    color: rgba(200, 200, 255, 0.6) !important;
+    text-decoration: none;
+    font-size: 1.5rem;
+    position: absolute;
+    align-items: center;
+    justify-items: center;
+    margin-top: auto;
+    left: 90px;
+}
+
+.login:hover {
+    color: rgba(200, 200, 255, 0.8) !important;
+}
