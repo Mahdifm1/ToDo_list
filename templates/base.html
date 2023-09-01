@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="{% static 'img/todo-icon.jpg' %}" type="image/x-icon"/>
     <title>
         {% block title %} {% endblock title %}
     </title>
@@ -19,13 +20,13 @@
         <div class="fl-right">
             {% if user.is_authenticated %}
                 Hi {{ user.username }}!
-                <p><a href="{% url 'logout' %}">Log Out</a></p>
+                <a class="login" href="{% url 'logout' %}">Log Out</a>
             {% else %}
                 <p>You are not logged in</p>
-                <a href="{% url 'login' %}">Log In</a>
+                <a class="login" href="{% url 'login' %}">Log In</a>
             {% endif %}</div>
         <h2 class="navbar-text">
-            ToDo list
+            <a class="navbar-color" href="/">ToDo list</a>
         </h2>
     </div>
 </nav>
