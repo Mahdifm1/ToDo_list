@@ -7,7 +7,7 @@ from .models import User, Todo
 
 @admin.register(Todo)
 class TodoAdmin(admin.ModelAdmin):
-    list_display = ('title', 'link_to_user', 'added_date')
+    list_display = ('title', 'link_to_user', 'added_date', 'done')
     readonly_fields = ('added_date',)
     sortable_by = ('-id', 'title', 'user')
     list_filter = ('added_date',)
